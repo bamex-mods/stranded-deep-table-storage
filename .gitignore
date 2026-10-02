@@ -1,0 +1,18 @@
+# Generated build output
+/build/
+/bin/
+/obj/
+/out/
+
+# Generated distribution output
+/dist/out/
+
+# IDE files
+.vs/
+*.user
+*.suo
+
+# Temporary files
+*.tmp
+*.bak
+*~

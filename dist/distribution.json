@@ -1,0 +1,42 @@
+﻿{
+    "schemaVersion":  1,
+    "id":  "table-storage",
+    "name":  "Stranded Deep Table Storage",
+    "version":  "0.8.1",
+    "artifactBaseName":  "StrandedDeepTableStorage",
+    "type":  "mod",
+    "category":  "building",
+    "description":  "Adds native-style storage to selected tables.",
+    "packagePaths":  [
+                         "BepInEx/plugins/StrandedDeepTableStorage"
+                     ],
+    "ownedPaths":  [
+                       "BepInEx/plugins/StrandedDeepTableStorage"
+                   ],
+    "install":  {
+                    "restartRequired":  true
+                },
+    "dependencies":  [
+                         {
+                             "id":  "bepinex",
+                             "required":  true
+                         }
+                     ],
+    "optionalDependencies":  [
+
+                             ],
+    "conflicts":  [
+
+                  ],
+    "persistence":  {
+                        "usesBepInExConfig":  true,
+                        "usesGameSave":  true,
+                        "usesSidecarData":  true,
+                        "backupBeforeUpdate":  true
+                    },
+    "publishing":  {
+                       "repository":  "stranded-deep-table-storage",
+                       "tag":  "v0.8.1",
+                       "releaseChannel":  "stable"
+                   }
+}
