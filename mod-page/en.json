@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "locale": "en",
+  "subtitle": "Vanilla tables turned into shared storage for both players.",
+  "description": "Turns existing Stranded Deep tables into full storage while keeping the native radial interface, adding denser stacks and separate safe persistence for the contents.",
+  "features": [
+    "Works on the game's existing tables instead of adding a separate construction type.",
+    "WOOD_TABLE, PLANK_TABLE and CORRUGATED_TABLE each use 7 storage slots.",
+    "Table storage uses denser capacity by multiplying the vanilla stack size by 3 inside the table only.",
+    "P1 and P2 in local split-screen access the same shared table contents.",
+    "Uses the native radial storage UI, including the game's normal Push, Pop, Open/Close and gamepad interaction.",
+    "Contents are stored in a separate sidecar keyed by the stable ReferenceId of the table.",
+    "Persistence uses the game's own SlotStorage.Save() payload rather than a custom hand-written item list.",
+    "Stored contents are represented visually on the tabletop."
+  ],
+  "screenshotCaptions": {},
+  "faq": [
+    {
+      "question": "How many slots does a table have?",
+      "answer": "Supported WOOD_TABLE, PLANK_TABLE and CORRUGATED_TABLE objects use 7 slots, which is the practical limit chosen for the native radial UI."
+    },
+    {
+      "question": "Are stack sizes increased everywhere?",
+      "answer": "No. The x3 multiplier applies only inside the table storage."
+    },
+    {
+      "question": "Do the two split-screen players get separate table inventories?",
+      "answer": "No. Both players access the same physical table and the same SlotStorage."
+    },
+    {
+      "question": "Does the mod rewrite the vanilla save JSON?",
+      "answer": "Table contents are stored separately in a sidecar while using the game's own SlotStorage serialization payload."
+    },
+    {
+      "question": "Why is storage keyed by ReferenceId instead of position?",
+      "answer": "Tables can move. ReferenceId keeps the identity of the same construction object when its coordinates change."
+    }
+  ],
+  "changelog": []
+}

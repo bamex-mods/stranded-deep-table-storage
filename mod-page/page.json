@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "table-storage",
+  "defaultLocale": "en",
+  "locales": {
+    "en": "en.json",
+    "ru": "ru.json"
+  },
+  "media": {
+    "cover": "media/cover.jpg",
+    "screenshots": []
+  },
+  "tags": [
+    "storage",
+    "furniture",
+    "building",
+    "persistence",
+    "split_screen",
+    "inventory"
+  ],
+  "highlights": [
+    "storage",
+    "furniture",
+    "building",
+    "persistence"
+  ]
+}
