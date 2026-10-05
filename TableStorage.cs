@@ -13,7 +13,7 @@ namespace StrandedDeepTableStorage
     [BepInPlugin(
         "com.bamex.strandeddeep.kitchentable",
         "Stranded Deep Table Storage",
-        "0.8.1")]
+        "0.8.2")]
     [BepInDependency(
         "bamex.strandeddeep.raftfurniture",
         BepInDependency.DependencyFlags.SoftDependency)]
@@ -151,7 +151,7 @@ namespace StrandedDeepTableStorage
             _harmony.PatchAll();
 
             Logger.LogInfo(
-                "Table Storage v0.8.1 loaded: runtime-state-aware Raft Furniture ownership + Mod Settings integration.");
+                "Table Storage v0.8.2 loaded: runtime-state-aware Raft Furniture ownership + Mod Settings integration.");
             Logger.LogInfo(
                 "Land tables use Table Storage leveling; raft-managed tables leave transform/physics entirely to Raft Furniture.");
             Logger.LogInfo(
@@ -209,20 +209,23 @@ namespace StrandedDeepTableStorage
                 const string modId =
                     "tablestorage";
 
-                Bamex.StrandedDeep.ModSettings.ModSettingsClient.RegisterMod(
+                Bamex.StrandedDeep.ModSettings.ModSettingsClient.RegisterModLocalized(
                     modId,
                     "СТОЛЫ — ХРАНИЛИЩЕ",
+                    "TABLE STORAGE",
                     400);
 
-                Bamex.StrandedDeep.ModSettings.ModSettingsClient.AddSlider(
+                Bamex.StrandedDeep.ModSettings.ModSettingsClient.AddSliderLocalized(
                     modId,
                     "stack_multiplier",
                     "Множитель стаков",
+                    "Stack Multiplier",
                     100,
                     1.0f,
                     10.0f,
                     1.0f,
                     1.0f,
+                    "×",
                     "×",
                     0,
                     delegate
@@ -235,13 +238,16 @@ namespace StrandedDeepTableStorage
                             Mathf.RoundToInt(value));
                     });
 
-                Bamex.StrandedDeep.ModSettings.ModSettingsClient.AddToggle(
+                Bamex.StrandedDeep.ModSettings.ModSettingsClient.AddToggleLocalized(
                     modId,
                     "show_contents",
                     "Содержимое на столешнице",
+                    "Tabletop Contents",
                     200,
                     "Вкл.",
+                    "On",
                     "Выкл.",
+                    "Off",
                     delegate
                     {
                         return _showDisplay.Value;
@@ -251,11 +257,18 @@ namespace StrandedDeepTableStorage
                         SetShowDisplay(value);
                     });
 
-                Bamex.StrandedDeep.ModSettings.ModSettingsClient.AddChoice(
+                Bamex.StrandedDeep.ModSettings.ModSettingsClient.AddChoiceLocalized(
                     modId,
                     "display_copies",
                     "Предметов на слот",
+                    "Items per Slot",
                     300,
+                    new string[]
+                    {
+                        "1",
+                        "2",
+                        "3"
+                    },
                     new string[]
                     {
                         "1",

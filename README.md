@@ -2,7 +2,14 @@
 
 A BepInEx mod for Stranded Deep that adds native-style storage to the game's craftable tables.
 
-Current version: **0.8.1**
+Current version: **0.8.2**
+
+## 0.8.2 Mod Settings localization
+
+- Added Russian/English localization for all three Mod Settings controls.
+- Synced the vendored reflection bridge with the authoritative bilingual SDK.
+- Seven-slot storage, stack behavior, display contents and persistence are unchanged.
+- Russian/English Mod Settings and local split-screen storage behavior were field-tested before publication.
 
 ## Features
 
@@ -53,7 +60,7 @@ Mod Settings is optional. Table Storage continues to work without it.
 ## Installation
 
 1. Install BepInEx for Stranded Deep.
-2. Download `StrandedDeepTableStorage-0.8.1.zip` from the GitHub Release.
+2. Download `StrandedDeepTableStorage-0.8.2.zip` from the GitHub Release.
 3. Extract the archive into the Stranded Deep game directory.
 4. Allow the included `BepInEx` folder to merge with the existing `BepInEx` folder.
 5. Fully restart Stranded Deep.

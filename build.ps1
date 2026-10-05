@@ -1,4 +1,6 @@
 param(
+    [Alias("GameDir")]
+    [string]$GameRoot = $env:STRANDED_DEEP_GAME_ROOT,
     [switch]$Deploy
 )
 
@@ -13,26 +15,11 @@ $SourceFiles = @(
 $BuildDir = Join-Path $ProjectDir "build"
 $OutputDll = Join-Path $BuildDir "StrandedDeepTableStorage.dll"
 
-function Find-StrandedDeep {
-    $candidates = @(
-        "F:\SteamLibrary\steamapps\common\Stranded Deep",
-        "D:\SteamLibrary\steamapps\common\Stranded Deep",
-        "E:\SteamLibrary\steamapps\common\Stranded Deep",
-        "G:\SteamLibrary\steamapps\common\Stranded Deep",
-        "C:\Program Files (x86)\Steam\steamapps\common\Stranded Deep",
-        "C:\Program Files\Steam\steamapps\common\Stranded Deep"
-    )
+$GameDir = $GameRoot
 
-    foreach ($candidate in $candidates) {
-        if (Test-Path (Join-Path $candidate "Stranded_Deep.exe")) {
-            return $candidate
-        }
-    }
-
-    throw "Stranded Deep installation was not found."
+if ([string]::IsNullOrWhiteSpace($GameDir)) {
+    throw "GameRoot was not supplied. Pass -GameRoot or set STRANDED_DEEP_GAME_ROOT."
 }
-
-$GameDir = Find-StrandedDeep
 $ManagedDir = Join-Path $GameDir "Stranded_Deep_Data\Managed"
 $BepInExCore = Join-Path $GameDir "BepInEx\core"
 
@@ -92,7 +79,7 @@ foreach ($ref in $Refs) {
 
 Write-Host "Game: $GameDir"
 Write-Host "Compiler: $Csc"
-Write-Host "Building Table Storage v0.8.1 canonical master..."
+Write-Host "Building Table Storage v0.8.2 canonical master..."
 
 & $Csc $args
 
